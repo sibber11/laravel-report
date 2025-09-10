@@ -68,14 +68,15 @@ Add the report CSS to your `vite.config.js`:
 
 ```javascript
 export default defineConfig({
-  build: {
-    rollupOptions: {
-      input: {
-        // ... your other inputs
-        'resources/css/report.css': './resources/css/report.css',
-      }
-    }
-  }
+    plugins: [
+        laravel({
+            input: [
+              // other css files
+              'resources/css/report.css'
+            ],
+            refresh: true,
+        }),
+    ],
 });
 ```
 
