@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@config '../../report-tailwind.config.js';
+
+thead th {
+    @apply border bg-gray-50;
+}
+
+tbody td, tbody, th {
+    @apply border border-gray-400 text-center p-1;
+}
+
+tbody tr {
+    @apply hover:bg-gray-100;
+}
+
+.total-row {
+    @apply bg-gray-50;
+}

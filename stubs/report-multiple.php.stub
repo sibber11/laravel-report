@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Reports;
+
+use BlinkerBoy\Report\Report;
+use BlinkerBoy\Report\TableBuilder;
+
+class {{ CLASS }} extends Report
+{
+
+    public function buildQuery(): void
+    {
+        $this->query = {{ MODEL }}::query()
+            ->whereDate('date', '>', $this->date[0])
+            ->whereDate('date', '<', $this->date[1]);
+
+    }
+
+    public function getReport()
+    {
+        return {{ MODEL }}::query()
+            ->whereDate('date', '>=', $this->date[0])
+            ->whereDate('date', '<=', $this->date[1]);
+
+    }
+
+    public function generateTables(array $date)
+    {
+        $table = new TableBuilder('{{ CLASS }}');
+    }
+}

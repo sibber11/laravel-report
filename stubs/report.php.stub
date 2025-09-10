@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Reports;
+
+use App\Models\{{ MODEL }};
+use BlinkerBoy\Report\Report;
+
+class {{ CLASS }} extends Report
+{
+    /**
+     * Columns to be displayed in the report
+     */
+    protected array $columns = [
+
+    ];
+
+    /**
+     * Get the report data from the database
+     */
+    public function getReport(array $date)
+    {
+        return {{ MODEL }}::query()
+            ->whereDate('date', '>', $date[0])
+            ->whereDate('date', '<', $date[1])
+            ->get();
+    }
+
+    /**
+     * Format the report data
+     */
+    public function format($report)
+    {
+        return $report->map(function ({{ MODEL }} $model) {
+            return [
+
+            ];
+        });
+    }
+
+    /**
+     * Calculate the totals
+     */
+    public function totals($report)
+    {
+        return [
+            //'Total' => $report->sum(''),
+        ];
+    }
+}
